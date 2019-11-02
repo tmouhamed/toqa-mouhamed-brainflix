@@ -1,0 +1,9 @@
+@import './variables.scss';
+@import './mixins/mixins.scss';
+
+.App {
+    @include flex-display-column;
+}
+.main {
+    @include flex-display-column;
+}

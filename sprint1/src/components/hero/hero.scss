@@ -1,0 +1,12 @@
+@import '../../styles/base.scss';
+
+.main__hero {
+    &-controls {
+        width: 100vw;
+        max-height: 183px;
+
+        &::poster {
+            color: $white-text-color;
+        }
+    }
+}
