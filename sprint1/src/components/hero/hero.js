@@ -1,11 +1,12 @@
 import React from 'react';
-import Poster from '../../assets/Images/video-list-0.jpg'
+import './hero.scss';
 
 class Hero extends React.Component {
     render() {
+        console.log(this.props);
         return (
             <section className="main__hero">
-                <video className="main__hero-controls" poster={Poster} controls></video>
+                <video className="main__hero-controls" poster={this.props.mainVideo.image} controls></video>
             </section>
         );
     }
