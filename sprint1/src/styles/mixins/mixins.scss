@@ -64,7 +64,7 @@
   text-transform: uppercase;
 }
 
-// Typography Mobile Styles
+// Typography MOBILE Styles
 @mixin header-mobile-style {
   margin: 0;
   font-size: 24px;
@@ -77,14 +77,20 @@
   line-height: 22px;
   font-family: $demibold-font;
 }
+@mixin listTitle-mobile-style {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: $demibold-font;
+}
 @mixin pargraph-mobile-style {
   margin: 0;
   font-size: 13px;
   line-height: 22px;
   font-family: $regular-font;
-
 }
 
+// Typography TABLET Styles
 @mixin header-tablet-style {
   font-size: 36px;
   line-height: 44px;
@@ -98,6 +104,12 @@
 @mixin subheader-tablet-style {
   font-size: 16px;
   line-height: 24px;
+  font-family: $demibold-font;
+}
+@mixin listTitle-tablet-style {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
   font-family: $demibold-font;
 }
 @mixin pargraph-tablet-style {

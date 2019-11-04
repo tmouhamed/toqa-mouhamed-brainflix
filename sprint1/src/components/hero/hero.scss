@@ -2,12 +2,25 @@
 
 .main__hero {
   position: relative;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  background-color: black;
 
   &-video {
-    width: 100vw;
+    max-width: 100%;
     max-height: 183px;
+
+    @include tablet-size {
+      max-width: 700px;
+      max-height: 400px;
+    }
+
+    @include desktop-size {
+      max-width: 944px;
+      max-height: 540px;
+    }
   }
+
   &-icons {
     position: absolute;
     bottom: 7%;
@@ -16,30 +29,157 @@
     border-radius: $border-radius;
 
     &__left {
-      left: 4%;
+      left: 3%;
     }
 
     &__center {
       display: flex;
       align-items: center;
       justify-content: center;
-      left: 24%;
+      left: 23%;
       padding: 0;
       width: 45%;
-      height: 19%;
+      height: 35px;
 
-      span {
+      p {
         border: 3px solid black;
         width: 80%;
         border-radius: 5px;
       }
+
+      &-text {
+        color: $white-text-color;
+        display: none;
+      }
     }
 
     &__right {
-      right: 2%;
+      display: flex;
+      right: 3%;
+      min-height: 35px;
 
       &-image {
         margin-right: 10px;
+      }
+    }
+  }
+
+  // ONLY FOR MOCKUP REQUIREMENTS "RESPONISVENESS"
+
+  @media (min-width: 375px) {
+    &-icons {
+      bottom: 4%;
+
+      &__left {
+        left: 8%;
+      }
+
+      &__center {
+        left: 23.7%;
+      }
+
+      &__right {
+        right: 8%;
+      }
+    }
+  }
+
+  @media (min-width: 425px) {
+    &-icons {
+      &__left {
+        left: 13%;
+      }
+
+      &__center {
+        left: 27%;
+        width: 39.3%;
+      }
+
+      &__right {
+        right: 13%;
+      }
+    }
+  }
+
+  @include tablet-size {
+    &-icons {
+      justify-content: space-between;
+      padding: 10px 19px;
+      &__left {
+        margin-left: 8px;
+        left: 4.5%;
+      }
+
+      &__center {
+        margin: 0 16px;
+        left: 12%;
+        width: 67%;
+        height: 10%;
+
+        p {
+          margin-right: 16px;
+        }
+        
+        &-text {
+          display: block;
+        }
+      }
+
+      &__right {
+        margin-right: 8px;
+        right: 4.5%;
+        min-height: 39px;
+
+        &-image {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+  @media screen and (width: 1024px) {
+    &-icons {
+      &__left {
+        margin: 0;
+        left: 17%;
+      }
+
+      &__center {
+        left: 22%;
+        width: 50%;
+        height: 10%;
+      }
+
+      &__right {
+        margin: 0;
+        right: 17%;
+      }
+    }
+  }
+
+  @include desktop-size {
+    &-icons {
+      padding: 10px 19px;
+      &__left {
+        margin-left: 16px;
+        left: 17.3%;    
+      }
+
+      &__center {
+        margin: 0 16px;
+        left: 22%;
+        width: 51.3%;
+        height: 7.4%;
+
+        p {
+          width: 87%;
+        }
+      }
+
+      &__right {
+        margin-right: 16px;
+        right: 17.3%;
+        display: flex;
       }
     }
   }
