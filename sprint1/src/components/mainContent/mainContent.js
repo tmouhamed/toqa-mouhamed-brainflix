@@ -7,7 +7,7 @@ import SideVideo from '../sideVideo/sideVideo.js';
 
 class MainContent extends React.Component {
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return (
             <main className="main">
                 <Hero mainVideo={this.props.mainVideo}/>

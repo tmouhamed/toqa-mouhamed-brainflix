@@ -4,13 +4,19 @@ import MainContent from './components/mainContent/mainContent';
 import { mainVideos, sideVideos } from './data/data';
 
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <MainContent mainVideo={mainVideos} sideVideo={sideVideos}/>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    mainVideos,
+    sideVideos
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <MainContent mainVideo={this.state.mainVideos} sideVideo={this.state.sideVideos} />
+      </div>
+    );
+  }
 }
 
 export default App;

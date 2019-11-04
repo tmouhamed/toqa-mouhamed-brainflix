@@ -1,12 +1,46 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .main__hero {
-    &-controls {
-        width: 100vw;
-        max-height: 183px;
+  position: relative;
+  z-index: 1;
 
-        &::poster {
-            color: $white-text-color;
-        }
+  &-video {
+    width: 100vw;
+    max-height: 183px;
+  }
+  &-icons {
+    position: absolute;
+    bottom: 7%;
+    background-color: rgba(0, 0, 0, 0.452);
+    padding: 8px 21px;
+    border-radius: $border-radius;
+
+    &__left {
+      left: 4%;
     }
+
+    &__center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 24%;
+      padding: 0;
+      width: 45%;
+      height: 19%;
+
+      span {
+        border: 3px solid black;
+        width: 80%;
+        border-radius: 5px;
+      }
+    }
+
+    &__right {
+      right: 2%;
+
+      &-image {
+        margin-right: 10px;
+      }
+    }
+  }
 }
