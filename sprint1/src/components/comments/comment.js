@@ -3,6 +3,48 @@ import './comment.scss';
 import Avatar from '../../assets/Images/Mohan-muruge.jpg';
 
 class Comment extends React.Component {
+    postedDate = (date) => {
+        console.log(date);
+        
+        if (!date) {
+            return null;
+        }
+        let commentDate = new Date(date).getTime();
+        let today = new Date().getTime();
+        let difference = today - commentDate;
+
+        // IN SECONDS
+        difference = difference / 1000;
+        let seconds = Math.floor(difference % 60);
+
+        // IN MINUTES
+        difference = difference / 60;
+        let minutes = Math.floor(difference % 60);
+
+        // IN HOURS
+        difference = difference / 60;
+        let hours = Math.floor(difference % 24);
+
+        // IN DAYS
+        let days = Math.floor(difference / 24);
+
+        let actualDate;
+        if (days > 0) {
+            actualDate = `${days} days ago`;
+        }
+        else if (days === 0 & hours > 0) {
+            actualDate = `${hours} hours ago`;
+        } 
+        else if (hours === 0 & minutes > 0) {
+            actualDate = `${minutes} minutes ago`;
+        } 
+        else {
+            actualDate = `${seconds} seconds ago`;
+        };
+        console.log(actualDate);
+        return actualDate
+    }
+
     render() {
         return (
 
@@ -31,7 +73,8 @@ class Comment extends React.Component {
                                 <div className="main__content-comments-card__section">
                                     <div className="main__content-comments-card__heading">
                                         <h4 className="main__content-comments-card__heading-h4">{item.name}</h4>
-                                        <span className="main__content-comments-card__heading-date">{item.timestamp}</span>
+                                        <span className="main__content-comments-card__heading-date">{this.postedDate(item.timestamp)}</span>
+
                                     </div>
                                     <p className="main__content-comments-card__message">{item.comment}</p>
                                 </div>
