@@ -137,6 +137,56 @@
     }
   }
 
+  @media (width: 1048px) {
+    &-icons {
+      &__left {
+        left: 17%;
+      }
+
+      &__center {
+        left: 22.5%;
+        width: 48.5%;
+
+        p {
+          margin-right: 16px;
+        }
+        
+        &-text {
+          display: block;
+        }
+      }
+
+      &__right {
+        right: 17%;
+      }
+    }
+  }
+
+  @media (width: 1390px) {
+    &-icons {
+      &__left {
+        left: 25%;
+      }
+
+      &__center {
+        left: 29%;
+        width: 37%;
+
+        p {
+          margin-right: 16px;
+        }
+        
+        &-text {
+          display: block;
+        }
+      }
+
+      &__right {
+        right: 25%;
+      }
+    }
+  }
+
   @media screen and (width: 1024px) {
     &-icons {
       &__left {
