@@ -1,0 +1,169 @@
+@import "../../styles/base.scss";
+
+.main__content {
+  &-comments {
+    &-title {
+      @include subheader-mobile-style;
+      margin-bottom: 32px;
+
+      @include tablet-size {
+        @include subheader-tablet-style;
+      }
+    }
+
+    &-container1 {
+      //for Mockup requirements
+      padding-bottom: 24px;
+      border-bottom: $border-style;
+      @include flex-display-row;
+
+      @include tablet-size {
+        padding-bottom: 0;
+      }
+    }
+
+    &-picture {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      margin-top: 7%;
+
+      @include tablet-size {
+        margin-top: 2.55%;
+      }
+    }
+
+    &-form {
+      width: 100%;
+      overflow: hidden;
+      margin-left: 4%;
+      @include flex-display-column;
+
+      @include tablet-size {
+        margin-left: 2%;
+      }
+
+      &__div {
+        @include tablet-size {
+          @include flex-display-row;
+          height: 4rem;
+          width: 100%;
+        }
+      }
+
+      &__label {
+        text-transform: uppercase;
+        color: $silver-text-color;
+        @include subheader-mobile-style;
+      }
+
+      &_textArea {
+        @include form-textArea-style;
+        border-width: 2px;
+        margin: 2px 0 16px 0;
+
+        &:focus {
+          border: 2px solid $button-color;
+          outline: none;
+        }
+
+        &::placeholder {
+          @include pargraph-mobile-style;
+          color: $black-text-color;
+        }
+
+        @include tablet-size {
+          margin: 0;
+          
+          &::placeholder {
+            @include pargraph-tablet-style;
+          }
+        }
+      }
+
+      &__button {
+        @include button-style;
+        max-width: 100%;
+
+        @include tablet-size {
+          margin: 0 40px 0 16px;
+          width: 25%;
+          height: 70%;
+          padding: 13px 0;
+        }
+        @include desktop-size {
+          width: 35%;
+        }
+      }
+    }
+
+    &-container2 {
+      @include flex-display-column;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 40px;
+      @include tablet-size {
+        margin-bottom: 40px;
+      }
+    }
+
+    &-card {
+      @include pargraph-mobile-style;
+      @include flex-display-row;
+      border-bottom: $border-style;
+      padding: 24px 0;
+
+      @include tablet-size {
+        @include pargraph-tablet-style;
+      }
+
+      &__picture {
+        background-color: silver;
+        min-width: 2.5rem;
+        max-height: 2.5rem;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      &__section {
+        @include flex-display-column;
+        justify-content: space-between;
+        width: 100%;
+        margin-left: 3%;
+      }
+
+      &__heading {
+        @include flex-display-row;
+        justify-content: space-between;
+        align-items: baseline;
+
+        @include tablet-size {
+          justify-content: flex-start;
+        }
+
+        &-h4 {
+          margin: 0;
+          margin-bottom: 16px;
+          @include subheader-mobile-style;
+
+          @include tablet-size {
+            @include subheader-tablet-style;
+            margin-right: 16px;
+          }
+        }
+
+        &-date {
+          margin: 0;
+          margin-bottom: 16px;
+          font-size: 14px;
+          color: silver;
+        }
+      }
+
+      &__message {
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,22 +1,22 @@
 import React from 'react';
-import Header from './components/header/header';
-import MainContent from './components/mainContent/mainContent';
-import { mainVideos, sideVideos } from './data/data';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Upload from './components/Upload/Upload';
+import MainContent from './components/MainContent/MainContent';
 
 
 class App extends React.Component {
-  state = {
-    mainVideos,
-    sideVideos
-  }
   render() {
     return (
       <div className="App">
-        <Header />
-        <MainContent mainVideo={this.state.mainVideos} sideVideo={this.state.sideVideos} />
+        <BrowserRouter>
+          <Switch>
+            <Route path="/upload" component={Upload} />
+            <Route path="/videos/:id" component={MainContent} />
+            <Route path="/" component={MainContent} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
 }
-
 export default App;

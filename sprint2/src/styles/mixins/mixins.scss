@@ -47,12 +47,21 @@
   flex-direction: row;
   height: auto;
 }
-@mixin standard-image-size {
+@mixin form-textArea-style {
+  border: $border-style;
+  border-radius: $border-radius;
+  background-color: $grey-text-color;
+  padding: 10px 5px;
+  min-height: 100px;
   width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-}  
+
+  @include tablet-size {
+    padding: 7px 0 7px 10px;
+    height: 45px;
+    min-height: 5%;
+  }
+}
+
 @mixin button-style {
   @include subheader-mobile-style;
   width: 100%;
