@@ -2,6 +2,7 @@ import React from 'react';
 import './MainVideo.scss';
 import Views from '../../assets/Icons/SVG/Icon-views.svg';
 import Likes from '../../assets/Icons/SVG/Icon-likes.svg';
+import Moment from 'react-moment';
 
 class MainVideo extends React.Component {
     render() {
@@ -11,7 +12,7 @@ class MainVideo extends React.Component {
                 <div className="main__content-info-inLine">
                     <div className="main__content-info-subtitle">
                         <h4 className="main__content-info-subtitle__name">By {this.props.mainVideo.channel}</h4>
-                        <span className="main__content-info-subtitle__date">{this.props.mainVideo.timestamp}</span>
+                        <span className="main__content-info-subtitle__date"><Moment format="YYYY/MM/DD">{this.props.mainVideo.timestamp}</Moment></span>
                     </div>
                     <div className="main__content-info-icon">
                         <div className="main__content-info-icon__viewsLikes">
