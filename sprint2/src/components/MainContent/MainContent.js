@@ -37,29 +37,34 @@ class MainContent extends React.Component {
                             mainVideos: response.data
                         })
                 })
-                
+
         }
     }
 
-    postComment(id) {
-        Axios.post(`${this.url}/videos/${id}/comments/${this.apiKey}`)
-        .then(response => {
-            console.log(response);
-            // this.setState({
-            //     sideVideos: response.data,
-            //     id: response.data[0].id
-            // })
-        })
-    }
+    // postComment(id) {
+    //     Axios.post(`${this.url}/videos/${id}/comments/${this.apiKey}`)
+    //     .then(response => {
+    //         console.log(response);
+    //         // this.setState({
+    //         //     sideVideos: response.data,
+    //         //     id: response.data[0].id
+    //         // })
+    //     })
+    // }
 
     componentDidMount() {
-        this.getVideoList();
         this.getMainVideo('1af0jruup5gu');
+        this.getVideoList();
     }
 
-    componentDidUpdate() {
-        this.getMainVideo(this.props.match.params.id);
-        this.postComment(this.props.match.params.id);
+    componentDidUpdate(prevProps) {
+        //to make the homepage only for the first video 
+        if (!this.props.match.params.id){
+            this.getMainVideo('1af0jruup5gu');
+        }
+        else if (this.props.match.params.id !== prevProps.match.params.id) {
+            this.getMainVideo(this.props.match.params.id);
+        }
     }
 
     render() {
