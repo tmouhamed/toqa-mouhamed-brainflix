@@ -1,0 +1,175 @@
+@import "../../styles/base.scss";
+
+.upload__page {
+  @include desktop-size {
+    @include flex-display-column;
+    margin: $desktop-margin;
+  }
+}
+.main__info {
+  &-title {
+    @include header-mobile-style;
+    margin-top: 24px;
+
+    @include tablet-size {
+      @include header-tablet-style;
+      margin: 48px 0 32px 0;
+    }
+  }
+}
+
+.main__form {
+  @include tablet-size {
+    border-top: $border-style;
+    margin-bottom: 180px;
+  }
+  @include desktop-size {
+    margin-bottom: 260px;
+  }
+
+  &-content {
+    @include tablet-size {
+      border-bottom: $border-style;
+    }
+    @include desktop-size {
+      @include flex-display-row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+  &-video {
+    margin: 32px 0;
+    @include tablet-size {
+      margin: 40px 0;
+    }
+
+    &__subtitle {
+      @include subheader-mobile-style;
+      text-transform: uppercase;
+      color: $silver-text-color;
+
+      @include tablet-size {
+        @include subheader-tablet-style;
+      }
+    }
+
+    &__image {
+      max-width: 288px;
+      max-height: 153px;
+      border-radius: $border-radius;
+
+      @include tablet-size {
+        width: 344px;
+        max-height: 183px;
+      }
+    }
+  }
+
+  &-div {
+    @include flex-display-column;
+    width: 100%;
+
+    @include desktop-size {
+      margin-left: 24px;
+    }
+
+    &__label {
+      @include listTitle-mobile-style;
+      color: $silver-text-color;
+      text-transform: uppercase;
+
+      @include tablet-size {
+        @include listTitle-tablet-style;
+      }
+    }
+
+    &__input {
+      border: $border-style;
+      border-radius: $border-radius;
+      background-color: $grey-text-color;
+      padding: 4%;
+      margin-bottom: 24px;
+
+      &::placeholder {
+        color: $black-text-color;
+      }
+
+      @include tablet-size {
+        padding: 2%;
+
+        &::placeholder {
+          @include pargraph-tablet-style;
+        }
+      }
+    }
+
+    &__textArea {
+      @include form-textArea-style;
+      padding: 4%;
+      margin-bottom: 32px;
+
+      &:focus {
+        border: 2px solid $button-color;
+        outline: none;
+      }
+
+      &::placeholder {
+        @include pargraph-mobile-style;
+        color: $black-text-color;
+      }
+
+      @include tablet-size {
+        padding: 2%;
+        height: 145px;
+        margin-bottom: 40px;
+
+        &::placeholder {
+          @include pargraph-tablet-style;
+          color: $black-text-color;
+        }
+      }
+
+      @include desktop-size {
+        height: 125px;
+      }
+    }
+
+    &__buttons {
+      @include tablet-size {
+        @include flex-display-row;
+        justify-content: flex-end;
+        padding-top: 40px;
+      }
+    }
+
+    &__button {
+      @include button-style;
+      max-width: 100%;
+
+      @include tablet-size {
+        border-top: $border-style;
+        order: 1;
+        margin: 0;
+        width: 22%;
+        height: 70%;
+        padding: 13px 0;
+      }
+      @include desktop-size {
+        width: 15%;
+      }
+    }
+
+    &__cancelButton {
+      @include button-style;
+      margin: 9px 0;
+      background-color: $white-text-color;
+      color: $button-color;
+
+      @include tablet-size {
+        margin: 0;
+        margin-right: 48px;
+        width: 8%;
+      }
+    }
+  }
+}
