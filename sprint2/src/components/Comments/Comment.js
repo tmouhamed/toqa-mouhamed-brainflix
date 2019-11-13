@@ -4,7 +4,7 @@ import Avatar from '../../assets/Images/Mohan-muruge.jpg';
 
 class Comment extends React.Component {
     postedDate = (date) => {
-        
+
         if (!date) {
             return null;
         }
@@ -33,16 +33,16 @@ class Comment extends React.Component {
         }
         else if (days === 0 & hours > 0) {
             actualDate = `${hours} hours ago`;
-        } 
+        }
         else if (hours === 0 & minutes > 0) {
             actualDate = `${minutes} minutes ago`;
-        } 
+        }
         else {
             actualDate = `${seconds} seconds ago`;
         };
         return actualDate
     }
-    render() {  
+    render() {
         return (
             <article className="main__content-comments">
                 <h4 className="main__content-comments-title">{this.props.mainVideo.comments.length} Comments</h4>
@@ -70,7 +70,6 @@ class Comment extends React.Component {
                                     <div className="main__content-comments-card__heading">
                                         <h4 className="main__content-comments-card__heading-h4">{item.name}</h4>
                                         <span className="main__content-comments-card__heading-date">{this.postedDate(item.timestamp)}</span>
-
                                     </div>
                                     <p className="main__content-comments-card__message">{item.comment}</p>
                                 </div>

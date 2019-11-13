@@ -15,12 +15,12 @@ class MainContent extends React.Component {
     state = {
         mainVideos: { comments: [] },
         sideVideos: [],
-        exist: ''
     }
 
-    getVideoList() {
+    getVideoList = () => {
         Axios.get(`${this.url}/videos/${this.apiKey}`)
             .then(response => {
+                console.log(response.data);
                 this.setState({
                     sideVideos: response.data,
                     id: response.data[0].id
@@ -28,7 +28,7 @@ class MainContent extends React.Component {
             })
     }
 
-    getMainVideo(id) {
+    getMainVideo = (id) => {
         if (id) {
             Axios.get(`${this.url}/videos/${id}/${this.apiKey}`)
                 .then(response => {
@@ -40,17 +40,6 @@ class MainContent extends React.Component {
 
         }
     }
-
-    // postComment(id) {
-    //     Axios.post(`${this.url}/videos/${id}/comments/${this.apiKey}`)
-    //     .then(response => {
-    //         console.log(response);
-    //         // this.setState({
-    //         //     sideVideos: response.data,
-    //         //     id: response.data[0].id
-    //         // })
-    //     })
-    // }
 
     componentDidMount() {
         this.getMainVideo('1af0jruup5gu');
@@ -68,6 +57,7 @@ class MainContent extends React.Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             <>
                 <Header />

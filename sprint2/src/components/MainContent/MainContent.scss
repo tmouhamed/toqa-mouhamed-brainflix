@@ -12,7 +12,7 @@
     @include flex-display-row;
     margin: $desktop-margin;
   }
-  @include  larger-tablet-size {
+  @include larger-tablet-size {
     align-self: center;
     width: 70%;
   }
