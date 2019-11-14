@@ -9,8 +9,7 @@ import SideVideo from '../SideVideo/SideVideo.js';
 import Header from '../Header/Header';
 
 class MainContent extends React.Component {
-    url = 'https://project-2-api.herokuapp.com';
-    apiKey = '?api_key=66fa89b3-0fa2-46c4-ae2a-ae3ed0c1eda7';
+    url = 'http://localhost:8080';
 
     state = {
         mainVideos: { comments: [] },
@@ -18,9 +17,8 @@ class MainContent extends React.Component {
     }
 
     getVideoList = () => {
-        Axios.get(`${this.url}/videos/${this.apiKey}`)
+        Axios.get(`${this.url}/videos/`)
             .then(response => {
-                console.log(response.data);
                 this.setState({
                     sideVideos: response.data,
                     id: response.data[0].id
@@ -30,34 +28,41 @@ class MainContent extends React.Component {
 
     getMainVideo = (id) => {
         if (id) {
-            Axios.get(`${this.url}/videos/${id}/${this.apiKey}`)
+            Axios.get(`${this.url}/videos/${id}/`)
                 .then(response => {
-                    if (this.state.mainVideos.id !== response.data.id)
-                        this.setState({
-                            mainVideos: response.data
-                        })
+                    this.setState({
+                        mainVideos: response.data
+                    })
                 })
 
         }
     }
 
+    // postVideo = (id) => {
+    //     Axios.post(`${this.url}/videos/${id}/comments/`)
+    //         .then(response => {
+    //             console.log(response);
+    //         })
+    // }
+
     componentDidMount() {
         this.getMainVideo('1af0jruup5gu');
         this.getVideoList();
+        // this.postVideo(this.props.match.params.id);
     }
 
     componentDidUpdate(prevProps) {
         //to make the homepage only for the first video 
-        if (!this.props.match.params.id){
-            this.getMainVideo('1af0jruup5gu');
-        }
-        else if (this.props.match.params.id !== prevProps.match.params.id) {
+
+        if (this.props.match.params.id !== prevProps.match.params.id) {
             this.getMainVideo(this.props.match.params.id);
         }
     }
 
     render() {
-        console.log(this.state);
+        if (!this.state.mainVideos) {
+            return null;
+        }
         return (
             <>
                 <Header />
