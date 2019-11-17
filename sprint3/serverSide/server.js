@@ -14,5 +14,5 @@ app.use('/videos', videoRoute);
 
 //listen to the server at this port
 app.listen(8080, () => {
-    console.log('======= The Server is working=======');
+    console.log('======= The Server is working =======');
 })

@@ -10,7 +10,6 @@ import Header from '../Header/Header';
 
 class MainContent extends React.Component {
     url = 'http://localhost:8080';
-
     state = {
         mainVideos: { comments: [] },
         sideVideos: [],
@@ -34,27 +33,20 @@ class MainContent extends React.Component {
                         mainVideos: response.data
                     })
                 })
-
         }
     }
-
-    // postVideo = (id) => {
-    //     Axios.post(`${this.url}/videos/${id}/comments/`)
-    //         .then(response => {
-    //             console.log(response);
-    //         })
-    // }
 
     componentDidMount() {
         this.getMainVideo('1af0jruup5gu');
         this.getVideoList();
-        // this.postVideo(this.props.match.params.id);
     }
 
     componentDidUpdate(prevProps) {
         //to make the homepage only for the first video 
-
-        if (this.props.match.params.id !== prevProps.match.params.id) {
+        if (!this.props.match.params.id) {
+            this.getMainVideo('1af0jruup5gu');
+        }
+        else if (this.props.match.params.id !== prevProps.match.params.id) {
             this.getMainVideo(this.props.match.params.id);
         }
     }

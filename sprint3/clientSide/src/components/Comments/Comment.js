@@ -43,7 +43,6 @@ class Comment extends React.Component {
         return actualDate
     }
     render() {
-        console.log(this.props);
         return (
             <article className="main__content-comments">
                 <h4 className="main__content-comments-title">{this.props.mainVideo.comments.length} Comments</h4>
