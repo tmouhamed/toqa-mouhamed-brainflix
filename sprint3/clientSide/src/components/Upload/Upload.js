@@ -10,12 +10,11 @@ class Upload extends React.Component {
         title: '',
         channel: 'Video Uploader',
         description: '',
-        image: '',
+        image: Image,
         views: 0,
         likes: 0,
         duration: '',
         timestamp: this.videoTime,
-        video: '',
         comments: [{
             name: "Micheal Lyons",
             comment: "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
@@ -40,22 +39,48 @@ class Upload extends React.Component {
 
     }
 
-    postVideo = (id) => {
-        Axios.post(`${this.url}/videos/${id}/comments`)
+    baseState = this.state;
+
+    postVideo = () => {
+        const videoToPost = {
+            title: this.state.title,
+            channel: this.state.channel,
+            image: this.state.image,
+            description: this.state.description,
+            views: this.state.views,
+            likes: this.state.likes,
+            duration: this.state.duration,
+            timestamp: this.state.timestamp,
+            comments: this.state.comments
+        }
+        Axios.post(`${this.url}/videos/`, videoToPost)
             .then(response => {
-                console.log(response)
+                this.setState({
+                    title: '',
+                    description: ''
+                })
+                alert('Upload successful')
             })
+            .catch(
+                error => console.error("This is an error", error
+                ));
     }
 
     submitHandler = (event) => {
         event.preventDefault();
         this.postVideo();
-    } 
+    }
 
     updateTitle = (event) => {
         this.setState({
             title: event.target.value
         })
+
+    }
+    
+    //to delete the form value afte submission
+    resetForm = () => {
+        this.setState(this.baseState)
     }
 
     updateDescription = (event) => {
@@ -64,16 +89,11 @@ class Upload extends React.Component {
         })
     }
 
-    componentDidMount() {
-        this.postVideo(this.props.match.params.id);
-    }
-
     render() {
-        console.log(this.state)
         return (
             <>
                 <Header />
-                <main className="main__content upload__page">
+                <main className="upload__page">
                     <section className="main__info">
                         <h1 className="main__info-title">Upload Video</h1>
                     </section>
@@ -87,12 +107,12 @@ class Upload extends React.Component {
                                 <label className="main__form-div__label">Title Your Video</label>
                                 <input className="main__form-div__input" type='text' name="title" placeholder="Add a title to your video" value={this.state.title} onChange={this.updateTitle}></input>
                                 <label className="main__form-div__label">Add a video description</label>
-                                <textarea className="main__form-div__textArea" cols="55" id="comment" name="comment" type="text" placeholder="Add a description of your video" vlaue={this.state.description} onChange={this.updateDescription}></textarea>
+                                <textarea className="main__form-div__textArea" cols="55" id="comment" name="comment" type="text" placeholder="Add a description of your video" value={this.state.description} onChange={this.updateDescription}></textarea>
                             </div>
                         </div>
                         <div className="main__form-div__buttons">
                             <button className="main__form-div__button" type="submit">Puplish</button>
-                            <button className="main__form-div__cancelButton"> Cancel</button>
+                            <button className="main__form-div__cancelButton" type="button" onClick={this.resetForm}> Cancel</button>
                         </div>
                     </form>
                 </main>

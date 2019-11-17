@@ -1,9 +1,20 @@
 @import "../../styles/base.scss";
 
 .upload__page {
+  @include flex-display-column;
+  @include pargraph-mobile-style;
+  margin: $mobile-margin;
+
+  @include tablet-size {
+    margin: $tablet-margin;
+  }
   @include desktop-size {
     @include flex-display-column;
     margin: $desktop-margin;
+  }
+  @include larger-tablet-size {
+    align-self: center;
+    width: 70%;
   }
 }
 .main__info {
